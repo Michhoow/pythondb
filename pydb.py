@@ -56,14 +56,19 @@ def agregarestudiante(tabla):
             return "Conexion no disponible."
         print("Ingrese los datos para ingresar")
         print()
-        id = input("Ingrese la id: ")
-        nombre = input("Ingrese el nombre: ")
-        fecha = input("Ingrese la fecha: ")
-        carrera = input("Ingrese la carrera: ")
+        IdAlumno = input("Ingrese la id del alumno: ")
+        NombreCompleto = input("Ingrese el nombre completo: ")
+        Genero = input("Ingrese el genero : ")
+        CURP = input("Ingrese la matricula: ")
+        Fecha_Nac = input("Ingrese la fecha de nacimiento: Año/Mes/Dia: ")
+        Direccion = input("Ingrese la direccion (Pais, provincia): ")
+        Telefono = input("Ingrese el numero de telefono: ")
+        IdGrupo = input("Ingrese la id del grupo: ")
+
         cursor = conexion.cursor()
 
-        consulta = f"insert into {tabla} (Id,Nombre,FechaNacimiento,Carrera) values(?, ?, ?, ?)"
-        cursor.execute(consulta, (id,nombre,fecha,carrera))
+        consulta = f"insert into {tabla} (IdAlumno,NombreCompleto,Genero,CURP,Fecha_Nac,Direccion,Telefono,IdGrupo) values(?, ?, ?, ?, ?, ?, ?, ?)"
+        cursor.execute(consulta, (IdAlumno,NombreCompleto,Genero,CURP,Fecha_Nac,Direccion,Telefono,IdGrupo))
         conexion.commit()
 
         print("Datos agregados.")
@@ -75,5 +80,6 @@ def agregarestudiante(tabla):
 while True:
 
     mostrarestudiantes("Alumno")
+    clear_console()
     agregarestudiante("Alumno")
     clear_console()
