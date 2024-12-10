@@ -74,6 +74,6 @@ def agregarestudiante(tabla):
         print(f"Error al agregar los datos: {e}")
 while True:
 
-    mostrarestudiantes("Estudiantes")
-    agregarestudiante("Estudiantes")
+    mostrarestudiantes("Alumno")
+    agregarestudiante("Alumno")
     clear_console()
